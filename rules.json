@@ -1,0 +1,114 @@
+{
+    "rules": [
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "From",
+                    "condition": "Contains",
+                    "value": ["pixlr.com", "quora.com", "firebase-noreply@google.com","anubhav.v2007@gmail.com"]
+                },
+                {
+                    "field": "Subject",
+                    "condition": "Contains",
+                    "value": ["Job Opportunity", "Career", "Hiring", "HappyFox", "Urgent", "Important", "Immediate"]
+                },
+                {
+                    "field": "Subject",
+                    "condition": "Contains",
+                    "value": ["Congratulations, you've won!", "Free", "Limited Offer"]
+                },
+                {
+                    "field": "Received Date",
+                    "condition": "Last 7 Days",
+                    "value": ""
+                }
+                
+                
+            ],
+            "action": { "type": "MarkAsRead" }
+        },
+        {
+            "predicate": "ALL",
+            "conditions": [
+                {
+                    "field": "From",
+                    "condition": "Contains",
+                    "value": "sharadav257@gmail.com"
+                },
+                {
+                    "field": "Subject",
+                    "condition": "Contains",
+                    "value": "test"
+                }
+            ],
+            "action": { "type": "MoveTo", "folder": "Trash" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Subject",
+                    "condition": "Contains",
+                    "value": ["Congratulations, you've won!", "Free", "Limited Offer"]
+                }
+            ],
+            "action": { "type": "MoveTo", "folder": "Spam" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Subject",
+                    "condition": "Contains",
+                    "value": ["Job Opportunity", "Career", "Hiring", "HappyFox", "Urgent", "Important", "Immediate"]
+                }
+            ],
+            "action": { "type": "MoveTo", "folder": "Important" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Received Date",
+                    "condition": "Equals",
+                    "value": "Sun, 16 Feb 2025"
+                }
+            ],
+            "action": { "type": "Archive" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Received Date",
+                    "condition": "Last 2 Days",
+                    "value": ""
+                }
+            ],
+            "action": { "type": "CreateLabel", "label": "Last 2 Days" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Received Date",
+                    "condition": "Month",
+                    "value": "February 2025"
+                }
+            ],
+            "action": { "type": "CreateLabel", "label": "February 2025" }
+        },
+        {
+            "predicate": "ANY",
+            "conditions": [
+                {
+                    "field": "Received Date",
+                    "condition": "Year",
+                    "value": "2025"
+                }
+            ],
+            "action": { "type": "CreateLabel", "label": "Year 2025" }
+        }
+    ]
+}
